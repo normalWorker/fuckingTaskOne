@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       menuList: [],
-      headTitle: "",
+      headTitle: "123",
       collapse: false,
     };
   },
