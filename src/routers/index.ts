@@ -5,6 +5,9 @@ import {
   createWebHashHistory,
   Router,
 } from "vue-router";
+interface extendRoute {
+  hidden?: boolean;
+}
 
 import Layout from "@/layout/index.vue";
 // import tableRouter from "./modules/table";
@@ -20,45 +23,47 @@ import Layout from "@/layout/index.vue";
 // import functionPageRouter from "./modules/functionPage";
 
 // // 异步组件
-// export const asyncRoutes = [
-//   ...dataScreenRouter,
-//   ...echartsRouter,
-//   ...tableRouter,
-//   ...formRouter,
-//   ...othersRouter,
-//   ...functionPageRouter,
-//   ...chatRouter,
-//   ...nestedRouter,
-//   ...excelRouter,
-//   ...externalLink,
-//   ...systemRouter,
-// ];
+export const asyncRoutes = [
+  // ...dataScreenRouter,
+  // ...echartsRouter,
+  // ...tableRouter,
+  // ...formRouter,
+  // ...othersRouter,
+  // ...functionPageRouter,
+  // ...chatRouter,
+  // ...nestedRouter,
+  // ...excelRouter,
+  // ...externalLink,
+  // ...systemRouter,
+];
 
-export const constantRoutes: Array<RouteRecordRaw> = [
-  // {
-  //   path: "/404",
-  //   name: "404",
-  //   component: () => import("@/views/errorPages/404.vue"),
-  //   hidden: true,
-  // },
-  // {
-  //   path: "/403",
-  //   name: "403",
-  //   component: () => import("@/views/errorPages/403.vue"),
-  //   hidden: true,
-  // },
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: () => import("@/views/login/index.vue"),
-  //   hidden: true,
-  //   meta: { title: "登录" },
-  // },
+export const constantRoutes: Array<RouteRecordRaw & extendRoute> = [
+  {
+    path: "/404",
+    name: "404",
+    component: () => import("@/views/errorPages/404.vue"),
+    hidden: true,
+  },
+  {
+    path: "/403",
+    name: "403",
+    component: () => import("@/views/errorPages/403.vue"),
+    hidden: true,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("@/views/login/index.vue"),
+    hidden: true,
+    meta: { title: "登录" },
+  },
   {
     path: "/",
     name: "layout",
+    component: Layout,
     redirect: "/home",
     meta: { title: "首页", icon: "House" },
+
     children: [
       {
         path: "/home",
@@ -71,6 +76,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: "/about",
     name: "about",
+    component: Layout,
     meta: { title: "关于", icon: "management" },
     children: [
       {
@@ -98,6 +104,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ],
   },
 ];
+
+export const notFoundRouter = {
+  path: "/:pathMatch(.*)",
+  name: "notFound",
+  redirect: "/404",
+};
 
 const router = createRouter({
   history: createWebHistory(),

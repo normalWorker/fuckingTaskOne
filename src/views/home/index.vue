@@ -86,7 +86,9 @@
         </div>
       </el-header>
       <el-main style="overflow: hidden; padding-right: 0; padding-bottom: 0">
-        <el-card style="height: 70%" shadow="hover"><piechart /></el-card>
+        <el-card style="height: 70%" shadow="hover">
+          <piechart />
+        </el-card>
         <el-card style="height: 30%" shadow="hover">
           <el-skeleton
             style="width: 100%"

@@ -12,10 +12,13 @@
         <pageHeader :routes="headTitle" />
       </div>
     </div>
-    <div class="right">right</div>
+    <div class="right">
+      <Avatar></Avatar>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
+import Avatar from "./components/Avatar";
 import pageHeader from "./pageHeader";
 const emit = defineEmits(["setColla"]);
 

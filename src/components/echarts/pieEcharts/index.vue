@@ -1,12 +1,11 @@
 <template>
-  <div class="app-echart">
-    <div id="pie1"></div>
-  </div>
+  <div id="pie1"></div>
 </template>
 <script lang="ts">
 import * as echarts from "echarts";
 
 export default {
+  name: "piechart",
   mounted() {
     this.init();
   },
@@ -57,13 +56,9 @@ export default {
 </script>
 
 <style scoped>
-.app-echart {
-  height: 100%;
-  width: 100%;
-}
-.pie1 {
+#pie1 {
   padding: 0;
-  width: 100%;
-  height: 100%;
+  width: 1000px;
+  height: 600px;
 }
 </style>
