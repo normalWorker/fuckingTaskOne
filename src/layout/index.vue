@@ -1,7 +1,6 @@
 <template>
   <div class="vertical">
     <div class="leftbar">
-      <el-container><div class="title">BINBIN</div></el-container>
       <el-scrollbar>
         <el-menu
           :collapse="collapse"
@@ -11,6 +10,7 @@
           text-color="#bfcbd9"
           router
         >
+          <el-menu-item class="title">BINBIN</el-menu-item>
           <el-sub-menu
             :index="route.path"
             v-for="route in menuList"
@@ -62,7 +62,9 @@ export default {
     };
   },
   mounted() {
-    this.menuList = constantRoutes;
+    let arr = constantRoutes.filter((item) => item.hidden !== true);
+    console.log("arr", arr);
+    this.menuList = arr;
   },
   components: {
     Header,
